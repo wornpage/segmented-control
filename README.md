@@ -1,87 +1,14 @@
-# @wornpage/segmented-control
+# Wornpage segmented-control — historical repository
 
-> Part of **[Wornpage Components](https://github.com/wornpage/wornpage#component-library)**.
-> [Browse the catalog](https://wornpage.pages.dev) · [Setup guide](https://github.com/wornpage/wornpage/blob/main/docs/getting-started.md) · [Wornpage overview](https://github.com/wornpage/wornpage)
+Active source, documentation, and releases now live in
+[`wornpage/wornpage/packages/segmented-control`](https://github.com/wornpage/wornpage/tree/main/packages/segmented-control).
 
-Svelte 5 segmented radio control. It preserves native arrow-key behavior,
-isolates repeated component instances, keeps the public form field name, and
-wraps labels inside compact equal-width segments.
+[Browse Components](https://wornpage-components.pages.dev) · [Installation guide](https://github.com/wornpage/wornpage/blob/main/docs/getting-started.md) · [Releases](https://github.com/wornpage/wornpage/releases)
 
-<!-- wornpage-delivery:v2 browser-bundle -->
-## Delivery
+This repository stays public to preserve exact commit archive URLs used by existing Projects and Afterlist editions. Existing branches, tags, and source history are retained.
 
-`src/` is the canonical implementation and the Svelte consumer entry. `dist/` is a generated browser bundle; run `bun run build` after source changes and never edit `dist/` directly.
+New issues, pull requests, and component changes belong in the canonical repository. The standalone release workflow has been retired.
 
-Repository text is checked out as LF through `.gitattributes`, so generated output is byte-stable across Windows and Linux.
+See the [migration record](https://github.com/wornpage/wornpage/blob/main/docs/component-migration.md) for source ownership and compatibility requirements.
 
-The shared [component delivery contract](https://github.com/wornpage/cli/blob/master/docs/component-delivery.md) checks this declaration, package exports, packed files, and generated output on every push and pull request.
-<!-- /wornpage-delivery -->
-
-## Source use
-
-This package is not published to npm. Check out this repository at a reviewed commit, install its
-dependencies from `bun.lock`, and consume `src/index.ts` through a local workspace alias. The
-`@wornpage/segmented-control` imports below assume that local alias; they do not resolve from the
-public npm registry.
-
-## Svelte
-
-```svelte
-<script>
-  import { SegmentedControl } from '@wornpage/segmented-control';
-  let period = $state('day');
-</script>
-
-<SegmentedControl
-  label="Period"
-  name="period"
-  options={[{ id: 'day', label: 'Day' }, { id: 'week', label: 'Week' }]}
-  bind:active={period}
-/>
-```
-
-Each component instance gives its radios a private native group name. A hidden
-input retains the supplied `name` and current value for form submission, so two
-controls can safely reuse a field name without changing each other's selection.
-
-## Styling
-
-Keyboard focus defaults to the rendered segment's `currentColor`, keeping the
-inset outline distinct in both selected and unselected states. Set
-`--worn-segmented-focus` on a component ancestor to supply a different focus
-color while retaining the native radio and focus-visible behavior.
-
-## Web component
-
-```html
-<worn-segmented-control id="period" label="Period"></worn-segmented-control>
-<script type="module">
-  import '@wornpage/segmented-control';
-  period.name = 'period';
-  period.options = [{ id: 'day', label: 'Day' }, { id: 'week', label: 'Week' }];
-  period.active = 'day';
-</script>
-```
-
-The web component emits `change` with `{ detail: { id } }`.
-
-## Props
-
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `options` | `{ id: string, label: string }[]` | required | Segment options |
-| `active` | `string` | `""` | Bindable selected id |
-| `name` | `string` | required | Public form field name |
-| `label` | `string` | `name` | Accessible group label |
-| `onchange` | `(id: string) => void` | none | Selection handler |
-
-## Commands
-
-```bash
-bun test
-bun run build
-```
-
-## License
-
-MIT
+Standalone maintenance ended on 2026-09-07. Existing source licenses continue to apply.
