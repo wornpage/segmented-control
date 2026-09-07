@@ -1,5 +1,8 @@
 # @wornpage/segmented-control
 
+> Part of **[Wornpage Components](https://github.com/wornpage/wornpage#component-library)**.
+> [Browse the catalog](https://wornpage.pages.dev) · [Setup guide](https://github.com/wornpage/wornpage/blob/main/docs/getting-started.md) · [Wornpage overview](https://github.com/wornpage/wornpage)
+
 Svelte 5 segmented radio control. It preserves native arrow-key behavior,
 isolates repeated component instances, keeps the public form field name, and
 wraps labels inside compact equal-width segments.
